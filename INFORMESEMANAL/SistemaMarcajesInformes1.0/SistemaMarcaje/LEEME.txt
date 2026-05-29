@@ -1,0 +1,25 @@
+# SISTEMA DE UNIFICACIÓN DE MARCAJE
+
+## 🚀 Cómo usar la aplicación:
+
+1. **Ejecutar**: Haz doble clic en `SistemaMarcaje.exe`
+2. **Seleccionar periodo**: Haz clic en "Seleccionar Periodo"
+3. **Agregar archivos**: Selecciona los archivos .xls o .xlsx
+4. **Procesar**: Haz clic en "INICIAR PROCESAMIENTO"
+
+## 📁 Características:
+
+• Unifica múltiples archivos de marcaje
+• Soporta archivos .xls y .xlsx
+• Formato de horas en líneas verticales
+• Ordena automáticamente por columna A
+• Filtros en Excel listos para usar
+• Resultados en carpeta "Resultados"
+
+## ⚠️ Notas:
+
+• La primera vez puede tardar unos segundos en iniciar
+• Los archivos generados se guardan en la carpeta "Resultados"
+• Necesita permisos para leer/crear archivos en la carpeta actual
+
+Desarrollado por RafaelO - Sistema de Marcaje v1.0
