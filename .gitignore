@@ -1,6 +1,6 @@
 # Backups
 *.bak
-*.bak.*
+*.bak*
 
 # Debug/temporales
 debug_*.py
