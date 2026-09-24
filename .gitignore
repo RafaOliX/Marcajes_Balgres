@@ -1,0 +1,22 @@
+# Backups
+*.bak
+*.bak.*
+
+# Debug/temporales
+debug_*.py
+temp_*.py
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Excel temporales
+~$*.xlsx
+
+# WSL/Windows
+*.swp
+.DS_Store
+Thumbs.db
+
