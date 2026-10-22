@@ -9,15 +9,31 @@ POWERSHELL = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe"
 TEMP_WSL = "/mnt/c/Users/RafaelO/AppData/Local/Temp/marcajes_temp.xlsx"
 
 
+import os
+import shutil
+
 def _win_a_wsl(ruta_win):
     """Convierte 'E:\\carpeta\\archivo.csv' a '/mnt/e/carpeta/archivo.csv'."""
     ruta_win = ruta_win.strip()
     if len(ruta_win) >= 2 and ruta_win[1] == ":":
         unidad = ruta_win[0].lower()
         resto = ruta_win[2:].replace("\\", "/")
-        return f"/mnt/{unidad}{resto}"
+        ruta_wsl = f"/mnt/{unidad}{resto}"
+        
+        # Si la ruta directa /mnt/e/... existe, la devuelve
+        if os.path.exists(ruta_wsl):
+            return ruta_wsl
+            
+        # Si /mnt/e/ NO existe (unidad no automontada por drvfs),
+        # forzamos un montaje temporal vía drvfs en WSL
+        punto_montaje = f"/mnt/{unidad}"
+        if not os.path.exists(punto_montaje):
+            os.system(f"sudo mkdir -p {punto_montaje}")
+            
+        os.system(f"sudo mount -t drvfs {unidad.upper()}: {punto_montaje} 2>/dev/null")
+        
+        return ruta_wsl
     return None
-
 
 def _wsl_a_win(ruta_wsl):
     """Convierte '/mnt/c/Users/...' a 'C:\\Users\\...'."""
